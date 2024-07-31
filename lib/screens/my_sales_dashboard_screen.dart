@@ -284,73 +284,83 @@ class _MySalesDashboardScreenState extends State<MySalesDashboardScreen> {
                   EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 10.0.h),
               child: Column(
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, '/faqscreen');
                     },
-                    child: Row(
-                      children: [
-                        SvgPicture.asset("assets/images/faq.svg",
-                            height: 30.h, width: 30.w),
-                        SizedBox(width: 10.w),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Faq',
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                              ),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset("assets/images/faq.svg",
+                              height: 30.h, width: 30.w),
+                          SizedBox(width: 10.w),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Faq',
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                  ),
+                                ),
+                                Text(
+                                  'All your queries answer',
+                                  style: TextStyle(
+                                      fontSize: 15.sp, color: Colors.grey),
+                                ),
+                              ],
                             ),
-                            Text(
-                              'All your queries answer',
-                              style: TextStyle(
-                                  fontSize: 15.sp, color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.grey.shade700,
-                        ),
-                      ],
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey.shade700,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 10.h),
                   const Divider(color: Colors.grey),
                   SizedBox(height: 10.h),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, '/supportscreen');
                     },
-                    child: Row(
-                      children: [
-                        SvgPicture.asset("assets/images/live.svg",
-                            height: 30.h, width: 30.w),
-                        SizedBox(width: 10.w),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Support',
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                              ),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset("assets/images/live.svg",
+                              height: 30.h, width: 30.w),
+                          SizedBox(width: 10.w),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Support',
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                  ),
+                                ),
+                                Text(
+                                  'Reach out for any help',
+                                  style: TextStyle(
+                                      fontSize: 15.sp, color: Colors.grey),
+                                ),
+                              ],
                             ),
-                            Text(
-                              'Reach out for any help',
-                              style: TextStyle(
-                                  fontSize: 15.sp, color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.grey.shade700,
-                        ),
-                      ],
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.grey.shade700,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -367,9 +377,9 @@ class _MySalesDashboardScreenState extends State<MySalesDashboardScreen> {
 class DateTimeRow extends StatefulWidget {
   final VoidCallback onRefresh;
   const DateTimeRow({
-    Key? key,
+    super.key,
     required this.onRefresh,
-  }) : super(key: key);
+  });
 
   @override
   _DateTimeRowState createState() => _DateTimeRowState();
