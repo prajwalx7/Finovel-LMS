@@ -129,13 +129,13 @@ class _MySalesDashboardScreenState extends State<MySalesDashboardScreen> {
                               decoration: BoxDecoration(
                                   border: Border.all(color: Colors.white),
                                   borderRadius: BorderRadius.circular(8)),
-                              child: ElevatedButton.icon(
+                              child: IconButton(
                                 onPressed: () {
                                   Navigator.pushNamed(context, '/filterscreen');
                                 },
                                 icon: SvgPicture.asset(
                                     "assets/images/filter.svg"),
-                                label: const Text("Filter"),
+                                // label: const Text(""),
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0.0,
                                   backgroundColor: Colors.transparent,

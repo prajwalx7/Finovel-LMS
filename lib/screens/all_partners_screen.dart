@@ -99,14 +99,13 @@ class AllPartnersScreen extends StatelessWidget {
                                               Border.all(color: Colors.white),
                                           borderRadius:
                                               BorderRadius.circular(8)),
-                                      child: ElevatedButton.icon(
+                                      child: IconButton(
                                         onPressed: () {
                                           Navigator.pushNamed(
                                               context, '/filterscreen');
                                         },
                                         icon: SvgPicture.asset(
                                             "assets/images/filter.svg"),
-                                        label: const Text("Filter"),
                                         style: ElevatedButton.styleFrom(
                                           elevation: 0.0,
                                           backgroundColor: Colors.transparent,

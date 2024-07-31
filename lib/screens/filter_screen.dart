@@ -329,20 +329,27 @@ class _FilterScreenState extends State<FilterScreen> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          elevation: 0.0,
-                          textStyle: TextStyle(fontSize: 18.sp),
-                          backgroundColor: const Color(0xffE8F0FD),
-                          foregroundColor: const Color(0xFF1769E9),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6))),
-                      child: Padding(
-                        padding: EdgeInsets.all(14.0.r),
-                        child: Text(
-                          "CLEAR FILTER",
-                          style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
+                        elevation: 0.0,
+                        textStyle: TextStyle(fontSize: 18.sp),
+                        backgroundColor: const Color(0xffE8F0FD),
+                        foregroundColor: const Color(0xFF1769E9),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
                         ),
+                        padding: EdgeInsets.symmetric(vertical: 14.w),
+                      ),
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        children: [
+                          Text(
+                            "CLEAR FILTER",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -351,26 +358,33 @@ class _FilterScreenState extends State<FilterScreen> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          elevation: 0.0,
-                          textStyle: TextStyle(fontSize: 18.sp),
-                          backgroundColor: const Color(0xFF1769E9),
-                          foregroundColor: const Color(0xffE8F0FD),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6.r))),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 14.w),
-                        child: Text(
-                          "APPLY",
-                          style: TextStyle(
-                              fontSize: 18.sp, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
+                        elevation: 0.0,
+                        textStyle: TextStyle(fontSize: 18.sp),
+                        backgroundColor: const Color(0xFF1769E9),
+                        foregroundColor: const Color(0xffE8F0FD),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
                         ),
+                        padding: EdgeInsets.symmetric(vertical: 14.w),
+                      ),
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        children: [
+                          Text(
+                            "APPLY",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
