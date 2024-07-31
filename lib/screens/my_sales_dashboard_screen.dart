@@ -125,7 +125,7 @@ class _MySalesDashboardScreenState extends State<MySalesDashboardScreen> {
                             ),
                             const Spacer(),
                             Container(
-                              height: 40.h,
+                              height: 35.h,
                               decoration: BoxDecoration(
                                   border: Border.all(color: Colors.white),
                                   borderRadius: BorderRadius.circular(8)),

@@ -274,7 +274,6 @@ Widget buildCard(String title, String amount, VoidCallback onTap) {
       padding: EdgeInsets.all(20.0.r),
       margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 12.w),
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(color: Colors.black12),
       ),

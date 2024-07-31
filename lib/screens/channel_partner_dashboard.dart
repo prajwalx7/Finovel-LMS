@@ -230,8 +230,7 @@ class ChannelPartnerDashboardScreen extends StatelessWidget {
                   SizedBox(height: 20.h),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).popUntil((route) => route.isFirst);
-                      Navigator.pushReplacementNamed(context, '/allpartners');
+                      Navigator.popAndPushNamed(context, '/allpartners');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF1769E9),
@@ -261,11 +260,9 @@ class ChannelPartnerDashboardScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 18.sp),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 100.h),
+                  SizedBox(height: 70.h),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/dashboardscreen');
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       textStyle: TextStyle(fontSize: 18.sp),
                       backgroundColor: const Color(0xFF1769E9),

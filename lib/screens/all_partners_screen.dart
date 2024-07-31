@@ -129,7 +129,6 @@ class AllPartnersScreen extends StatelessWidget {
                         height: 90.h,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            color: Colors.white,
                             border: Border.all(color: Colors.grey.shade300),
                             borderRadius: BorderRadius.circular(6)),
                         child: Row(
@@ -245,7 +244,6 @@ Widget buildContainer(
         height: 90.h,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white,
           border: Border.all(color: Colors.grey.shade300),
           borderRadius: BorderRadius.circular(6),
         ),

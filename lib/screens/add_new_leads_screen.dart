@@ -376,6 +376,7 @@ void _showSubmissionDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
+        backgroundColor: Colors.white,
         content: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 250.w),
           child: Column(
@@ -415,12 +416,13 @@ void _showSubmissionDialog(BuildContext context) {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                  Navigator.pushReplacementNamed(context, '/mysalesdashboard');
+                  Navigator.popAndPushNamed(context, '/mysalesdashboard');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1769E9),
                   foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6.r)),
                   padding:
                       EdgeInsets.symmetric(horizontal: 60.w, vertical: 10.h),
                 ),

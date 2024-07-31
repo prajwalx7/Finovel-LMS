@@ -109,7 +109,6 @@ class FAQScreen extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(color: Colors.grey.shade300),
                     ),
