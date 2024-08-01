@@ -113,14 +113,22 @@ class DashboardScreen extends StatelessWidget {
               ),
             ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Lottie.asset(
-              "assets/animation/icon.json",
-              height: 150.h,
-              width: double.infinity,
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: ClipRect(
+              child: Align(
+                alignment: Alignment.topCenter,
+                heightFactor: 0.75,
+                child: Lottie.asset(
+                  "assets/animation/icon.json",
+                  height: 150.h,
+                  width: double.infinity,
+                ),
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
