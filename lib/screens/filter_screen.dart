@@ -146,7 +146,6 @@ class _FilterScreenState extends State<FilterScreen> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black12),
                         borderRadius: BorderRadius.circular(8.r),
-                        color: Colors.white,
                       ),
                       child: Column(
                         children: [
@@ -230,7 +229,6 @@ class _FilterScreenState extends State<FilterScreen> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black12),
                         borderRadius: BorderRadius.circular(8.r),
-                        color: Colors.white,
                       ),
                       child: Column(
                         children: [

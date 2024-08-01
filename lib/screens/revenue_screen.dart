@@ -254,9 +254,13 @@ class RevenueScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                buildCard("My Sales Earnings", "₹ 600", () {}),
+                buildCard("My Sales Earnings", "₹ 600", () {
+                  Navigator.pushNamed(context, '/mysalesearningdashboard');
+                }),
                 buildCard("Finovel App Referral Earning", "₹ 750", () {}),
-                buildCard("Channel Partner Referral Earning", "₹ 64", () {}),
+                buildCard("Channel Partner Referral Earning", "₹ 64", () {
+                  Navigator.pushNamed(context, '/earningfromchannelpartner');
+                }),
                 buildCard("Other Earnings", "₹ 512", () {}),
               ],
             ),

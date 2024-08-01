@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class MySalesEarningDashboardScreen extends StatelessWidget {
-  const MySalesEarningDashboardScreen({super.key});
+class EarningfromChannelPartner extends StatelessWidget {
+  const EarningfromChannelPartner({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class MySalesEarningDashboardScreen extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () => Navigator.popAndPushNamed(
-                                context, '/mysalesdashboard'),
+                                context, '/revenuescreen'),
                             child: Padding(
                               padding: EdgeInsets.only(top: 10.0.w),
                               child: Row(
@@ -73,7 +73,7 @@ class MySalesEarningDashboardScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 10.h),
                       Text(
-                        'My Sales Earning Dashboard',
+                        'Earning from Channel Partners',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.sp,

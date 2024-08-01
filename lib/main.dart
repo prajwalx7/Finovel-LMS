@@ -3,6 +3,7 @@ import 'package:app/screens/all_partners_screen.dart';
 import 'package:app/screens/application_tracking_screen.dart';
 import 'package:app/screens/channel_partner_dashboard.dart';
 import 'package:app/screens/dashboard_screen.dart';
+import 'package:app/screens/earning_from_channel_partner.dart';
 import 'package:app/screens/earnings_from_partners_screen.dart';
 import 'package:app/screens/faqq_screen.dart';
 import 'package:app/screens/filter_screen.dart';
@@ -57,6 +58,8 @@ class MyApp extends StatelessWidget {
             '/myallrevenue': (context) => const MyAllRevenueScreen(),
             '/mysalesearningdashboard': (context) =>
                 const MySalesEarningDashboardScreen(),
+            '/earningfromchannelpartner': (context) =>
+                const EarningfromChannelPartner(),
           },
         );
       },
