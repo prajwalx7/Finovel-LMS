@@ -7,14 +7,17 @@ import 'package:app/screens/earning_from_channel_partner.dart';
 import 'package:app/screens/earnings_from_partners_screen.dart';
 import 'package:app/screens/faqq_screen.dart';
 import 'package:app/screens/filter_screen.dart';
+import 'package:app/screens/login_screen.dart';
 import 'package:app/screens/main_dashboard.dart';
 import 'package:app/screens/my_all_revenue_screen.dart';
 import 'package:app/screens/my_sales_dashboard_screen.dart';
 import 'package:app/screens/my_sales_earnings_dash.dart';
+import 'package:app/screens/profile.dart';
 import 'package:app/screens/reference_details_screen.dart';
 import 'package:app/screens/referral_program_screen.dart';
 import 'package:app/screens/referral_steps.dart';
 import 'package:app/screens/revenue_screen.dart';
+import 'package:app/screens/sms_screen.dart';
 import 'package:app/screens/support_screen.dart';
 import 'package:app/screens/terms_conditions_screen.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
       builder: (context, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/referralscreen',
+          initialRoute: '/profile',
           routes: {
             '/referralscreen': (context) => const ReferralProgramScreen(),
             '/referralsteps': (context) => const ReferralSteps(),
@@ -60,6 +63,9 @@ class MyApp extends StatelessWidget {
                 const MySalesEarningDashboardScreen(),
             '/earningfromchannelpartner': (context) =>
                 const EarningfromChannelPartner(),
+            '/loginscreen': (context) => const LoginScreen(),
+            '/smsscreen': (context) => const SmsScreen(),
+            '/profile': (context) => const ProfileScreen(),
           },
         );
       },

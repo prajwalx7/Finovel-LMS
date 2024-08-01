@@ -23,7 +23,9 @@ class ReferralProgramScreen extends StatelessWidget {
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(context, '/smsscreen');
+                    },
                     child: Padding(
                       padding: EdgeInsets.only(top: 10.0.w),
                       child: Row(
@@ -390,7 +392,8 @@ class ReferralProgramScreen extends StatelessWidget {
                                   backgroundColor: const Color(0xFF1769E9),
                                   foregroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(6.r))),
+                                      borderRadius:
+                                          BorderRadius.circular(6.r))),
                               child: Padding(
                                 padding: EdgeInsets.all(12.0.w),
                                 child: SizedBox(
