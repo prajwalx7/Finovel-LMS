@@ -271,7 +271,7 @@ class ChannelPartnerDashboardScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6.r)),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                      padding: EdgeInsets.symmetric(vertical: 8.h),
                       child: SizedBox(
                         width: double.infinity,
                         height: 40.h,

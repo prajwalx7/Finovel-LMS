@@ -245,7 +245,7 @@ class _AddNewLeadsScreenState extends State<AddNewLeadsScreen> {
                       ),
                       const Expanded(
                         child: Text(
-                          'I Agree to get Call & Notification on SMS, Email for next Application Process.',
+                          'I Agree to customer can get Call & Notification on SMS, Email for next Application Process.',
                           style: TextStyle(fontSize: 14),
                         ),
                       ),
@@ -268,7 +268,7 @@ class _AddNewLeadsScreenState extends State<AddNewLeadsScreen> {
                         padding: EdgeInsets.all(12.0.r),
                         child: SizedBox(
                           width: double.infinity,
-                          height: 40.h,
+                          height: 30.h,
                           child: Center(
                             child: Text(
                               "SUBMIT",
