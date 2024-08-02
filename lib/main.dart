@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                 const EarningfromChannelPartner(),
             '/loginscreen': (context) => const LoginScreen(),
             '/smsscreen': (context) => const SmsScreen(),
-            '/profile': (context) => const ProfileScreen(),
+            '/profile': (context) =>  ProfileScreen(),
           },
         );
       },
