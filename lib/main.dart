@@ -21,9 +21,16 @@ import 'package:app/screens/sms_screen.dart';
 import 'package:app/screens/support_screen.dart';
 import 'package:app/screens/terms_conditions_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Color(0xFF1769E9),
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
   runApp(const MyApp());
 }
 

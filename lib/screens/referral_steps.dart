@@ -8,173 +8,175 @@ class ReferralSteps extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      'assets/imgs/header_bg1.png',
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: 150.h,
+                    ),
                   ),
-                  child: Image.asset(
-                    'assets/imgs/header_bg1.png',
-                    fit: BoxFit.fill,
-                    width: double.infinity,
-                    height: 190.h,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 42.h,
-                    left: 20.w,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () => Navigator.popAndPushNamed(
-                                context, '/referralscreen'),
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 10.0.w),
-                              child: const Row(
-                                children: [
-                                  Icon(
-                                    Icons.arrow_back_ios,
-                                    size: 15,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    'BACK',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 5.h,
+                      left: 20.w,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () => Navigator.popAndPushNamed(
+                                  context, '/referralscreen'),
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 10.0.w),
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.arrow_back_ios,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'BACK',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                          const Spacer(),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Padding(
-                              padding: EdgeInsets.all(8.r),
-                              child: Image.asset(
-                                "assets/imgs/notification.png",
-                                height: 40.h,
-                                width: 40.w,
+                            const Spacer(),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Padding(
+                                padding: EdgeInsets.all(8.r),
+                                child: Image.asset(
+                                  "assets/imgs/notification.png",
+                                  height: 40.h,
+                                  width: 40.w,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 40.h),
-                      const Text(
-                        'Steps to Earn Referral Payout',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          ],
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 40.h),
+                        const Text(
+                          'Steps to Earn Referral Payout',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black12),
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-                width: double.infinity,
-                child: Padding(
-                  padding: EdgeInsets.all(16.r),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const ReferralStepsData(
-                        svgPath: 'assets/images/share.svg',
-                        title: 'Share Link to Friends',
-                        description:
-                            'Tips: Share to groups and reach your cash rewards faster',
-                      ),
-                      SizedBox(height: 10.h),
-                      const ReferralStepsData(
-                        svgPath: 'assets/images/download.svg',
-                        title:
-                            'Invitee fills in their mobile number to download Finovel App',
-                      ),
-                      SizedBox(height: 10.h),
-                      const ReferralStepsData(
-                        svgPath: 'assets/images/new_user.svg',
-                        title:
-                            'Invitee signs up on Finovel App, claims the new user reward',
-                      ),
-                      SizedBox(height: 10.h),
-                      const ReferralStepsData(
-                        svgPath: 'assets/images/reward_points.svg',
-                        title: 'Get your reward points',
-                      ),
-                      SizedBox(height: 10.h),
-                      const ReferralStepsData(
-                        svgPath: 'assets/images/badge.svg',
-                        title:
-                            'Get your extra rewards when invitee tops up airtime.',
-                        isLastStep: true,
-                      ),
-                      SizedBox(height: 20.h),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Text(
-                              'RULES',
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.bold,
+                ],
+              ),
+              SizedBox(height: 10.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black12),
+                    borderRadius: BorderRadius.circular(8.r),
+                  ),
+                  width: double.infinity,
+                  child: Padding(
+                    padding: EdgeInsets.all(16.r),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const ReferralStepsData(
+                          svgPath: 'assets/images/share.svg',
+                          title: 'Share Link to Friends',
+                          description:
+                              'Tips: Share to groups and reach your cash rewards faster',
+                        ),
+                        SizedBox(height: 10.h),
+                        const ReferralStepsData(
+                          svgPath: 'assets/images/download.svg',
+                          title:
+                              'Invitee fills in their mobile number to download Finovel App',
+                        ),
+                        SizedBox(height: 10.h),
+                        const ReferralStepsData(
+                          svgPath: 'assets/images/new_user.svg',
+                          title:
+                              'Invitee signs up on Finovel App, claims the new user reward',
+                        ),
+                        SizedBox(height: 10.h),
+                        const ReferralStepsData(
+                          svgPath: 'assets/images/reward_points.svg',
+                          title: 'Get your reward points',
+                        ),
+                        SizedBox(height: 10.h),
+                        const ReferralStepsData(
+                          svgPath: 'assets/images/badge.svg',
+                          title:
+                              'Get your extra rewards when invitee tops up airtime.',
+                          isLastStep: true,
+                        ),
+                        SizedBox(height: 20.h),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Center(
+                              child: Text(
+                                'RULES',
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                          Divider(
-                            thickness: 1,
-                            color: Colors.grey[400],
-                          ),
-                          buildRuleItem(
-                            title: 'Referral Points',
-                            description:
-                                'Users earn 100 points for each successful referral (when the referred user installs the application).',
-                          ),
-                          buildRuleItem(
-                            title: 'Point Value',
-                            description: '1 point = ₹0.25.',
-                          ),
-                          buildRuleItem(
-                            title: 'Redemption Threshold',
-                            description:
-                                'Users can redeem points only when they have accumulated at least 1000 points.',
-                          ),
-                          buildRuleItem(
-                            title: 'Application Referral',
-                            description:
-                                'Tracking if the referral was successful in the application installation.',
-                          ),
-                        ],
-                      )
-                    ],
+                            Divider(
+                              thickness: 1,
+                              color: Colors.grey[400],
+                            ),
+                            buildRuleItem(
+                              title: 'Referral Points',
+                              description:
+                                  'Users earn 100 points for each successful referral (when the referred user installs the application).',
+                            ),
+                            buildRuleItem(
+                              title: 'Point Value',
+                              description: '1 point = ₹0.25.',
+                            ),
+                            buildRuleItem(
+                              title: 'Redemption Threshold',
+                              description:
+                                  'Users can redeem points only when they have accumulated at least 1000 points.',
+                            ),
+                            buildRuleItem(
+                              title: 'Application Referral',
+                              description:
+                                  'Tracking if the referral was successful in the application installation.',
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 20.h), // Add bottom padding
-          ],
+              SizedBox(height: 20.h), // Add bottom padding
+            ],
+          ),
         ),
       ),
     );

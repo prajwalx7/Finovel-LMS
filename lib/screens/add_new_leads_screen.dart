@@ -19,273 +19,277 @@ class _AddNewLeadsScreenState extends State<AddNewLeadsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10.r),
-                    bottomRight: Radius.circular(10.r),
-                  ),
-                  child: Image.asset(
-                    'assets/imgs/header_bg1.png',
-                    fit: BoxFit.fill,
-                    width: double.infinity,
-                    height: 190.h,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 42.h,
-                    left: 20.w,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0.w, vertical: 8.0.h),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () => Navigator.popAndPushNamed(
-                                  context, '/referralscreen'),
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 10.0.w),
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.arrow_back_ios,
-                                      size: 15.sp,
-                                      color: Colors.white,
-                                    ),
-                                    const Text(
-                                      'BACK',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 30.h),
-                      Padding(
-                        padding: EdgeInsets.only(right: 8.0.w),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Add New Lead Details',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const Spacer(),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Padding(
-                                padding: EdgeInsets.all(8.r),
-                                child: Icon(
-                                  Icons.share,
-                                  size: 25.sp,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 20.0.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
                 children: [
-                  const Text(
-                    "FILL-UP THE LEAD DETAILS",
-                    style: TextStyle(fontSize: 14),
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10.r),
+                      bottomRight: Radius.circular(10.r),
+                    ),
+                    child: Image.asset(
+                      'assets/imgs/header_bg1.png',
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: 150.h,
+                    ),
                   ),
-                  SizedBox(height: 20.h),
-                  textField("Full Name", "Full Name"),
-                  SizedBox(height: 20.h),
-                  textField("Mobile Number", "Mobile Number"),
-                  SizedBox(height: 20.h),
-                  textField("Email ID", "Email ID"),
-                  SizedBox(height: 20.h),
-                  textField("Pancard Number", "Pancard Number"),
-                  SizedBox(height: 20.h),
-                  textField("Aadhar Number", "Aadhar Number"),
-                  SizedBox(height: 20.h),
-                  textField("Area Pincode", "Area Pincode"),
-                  SizedBox(height: 20.h),
-                  dropdownField(
-                    labelText: "Select Type of Requirements",
-                    hintText: "Select Type of Requirements",
-                    items: [
-                      'Personal Loan',
-                      'Home Loan',
-                      'Business Loan',
-                      'Gold Loan',
-                      'Vehicle Loan',
-                      'Credit Card',
-                      'Loan Against Property',
-                      'Other Loan',
-                    ],
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedRequirement = newValue;
-                      });
-                    },
-                    value: selectedRequirement,
-                  ),
-                  SizedBox(height: 20.h),
-                  textField("Monthly in Hand Income", "Monthly in Hand Income"),
-                  SizedBox(height: 20.h),
-                  dropdownField(
-                    labelText: "Source of Income",
-                    value: selectedLeadType,
-                    hintText: "Source of Income",
-                    items: ['Salaries', 'Self-Employed', 'Unemployed'],
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedLeadType = newValue;
-                      });
-                    },
-                  ),
-                  SizedBox(height: 20.h),
-                  textField("Required Loan Amount", "Required Loan Amount"),
-                  SizedBox(height: 20.h),
-                  dropdownField(
-                    labelText: "Type of Lead",
-                    value: selectedIncomeSource,
-                    hintText: "Type of Lead",
-                    items: ['Hot Lead', 'Warm Lead', 'Cold Lead'],
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedIncomeSource = newValue;
-                      });
-                    },
-                  ),
-                  SizedBox(height: 70.h),
-                  textField("Add Referral Code", "Add Referral Code"),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: _isCheckedPrivacy,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            _isCheckedPrivacy = value ?? false;
-                          });
-                        },
-                        fillColor: WidgetStateProperty.resolveWith<Color>(
-                            (Set<WidgetState> states) {
-                          if (states.contains(WidgetState.selected)) {
-                            return Colors.blue;
-                          }
-                          return Colors.white;
-                        }),
-                        checkColor: Colors.white,
-                      ),
-                      Expanded(
-                        child: RichText(
-                          text: const TextSpan(
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 5.h,
+                      left: 20.w,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 8.0.w, vertical: 8.0.h),
+                          child: Row(
                             children: [
-                              TextSpan(
-                                text: 'I have read the ',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 14),
-                              ),
-                              TextSpan(
-                                text: 'Privacy Policy, Terms & Condition.',
-                                style:
-                                    TextStyle(color: Colors.blue, fontSize: 14),
+                              GestureDetector(
+                                onTap: () => Navigator.popAndPushNamed(
+                                    context, '/referralscreen'),
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 10.0.w),
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.arrow_back_ios,
+                                        size: 15.sp,
+                                        color: Colors.white,
+                                      ),
+                                      const Text(
+                                        'BACK',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: _isCheckedNotify,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            _isCheckedNotify = value ?? false;
-                          });
-                        },
-                        fillColor: WidgetStateProperty.resolveWith<Color>(
-                            (Set<WidgetState> states) {
-                          if (states.contains(WidgetState.selected)) {
-                            return Colors.blue;
-                          }
-                          return Colors.white;
-                        }),
-                        checkColor: Colors.white,
-                      ),
-                      const Expanded(
-                        child: Text(
-                          'I Agree to customer can get Call & Notification on SMS, Email for next Application Process.',
-                          style: TextStyle(fontSize: 14),
+                        SizedBox(height: 30.h),
+                        Padding(
+                          padding: EdgeInsets.only(right: 8.0.w),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Add New Lead Details',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Spacer(),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.r),
+                                  child: Icon(
+                                    Icons.share,
+                                    size: 25.sp,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 20.h),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _showSubmissionDialog(context);
+                ],
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 20.0.w, vertical: 20.0.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "FILL-UP THE LEAD DETAILS",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    SizedBox(height: 20.h),
+                    textField("Full Name", "Full Name"),
+                    SizedBox(height: 20.h),
+                    textField("Mobile Number", "Mobile Number"),
+                    SizedBox(height: 20.h),
+                    textField("Email ID", "Email ID"),
+                    SizedBox(height: 20.h),
+                    textField("Pancard Number", "Pancard Number"),
+                    SizedBox(height: 20.h),
+                    textField("Aadhar Number", "Aadhar Number"),
+                    SizedBox(height: 20.h),
+                    textField("Area Pincode", "Area Pincode"),
+                    SizedBox(height: 20.h),
+                    dropdownField(
+                      labelText: "Select Type of Requirements",
+                      hintText: "Select Type of Requirements",
+                      items: [
+                        'Personal Loan',
+                        'Home Loan',
+                        'Business Loan',
+                        'Gold Loan',
+                        'Vehicle Loan',
+                        'Credit Card',
+                        'Loan Against Property',
+                        'Other Loan',
+                      ],
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedRequirement = newValue;
+                        });
                       },
-                      style: ElevatedButton.styleFrom(
-                          textStyle: const TextStyle(fontSize: 18),
-                          backgroundColor: const Color(0xFF1769E9),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6.r))),
-                      child: Padding(
-                        padding: EdgeInsets.all(12.0.r),
-                        child: SizedBox(
-                          width: double.infinity,
-                          height: 30.h,
-                          child: Center(
-                            child: Text(
-                              "SUBMIT",
-                              style: TextStyle(
-                                  fontSize: 20.sp, fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
+                      value: selectedRequirement,
+                    ),
+                    SizedBox(height: 20.h),
+                    textField(
+                        "Monthly in Hand Income", "Monthly in Hand Income"),
+                    SizedBox(height: 20.h),
+                    dropdownField(
+                      labelText: "Source of Income",
+                      value: selectedLeadType,
+                      hintText: "Source of Income",
+                      items: ['Salaries', 'Self-Employed', 'Unemployed'],
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedLeadType = newValue;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 20.h),
+                    textField("Required Loan Amount", "Required Loan Amount"),
+                    SizedBox(height: 20.h),
+                    dropdownField(
+                      labelText: "Type of Lead",
+                      value: selectedIncomeSource,
+                      hintText: "Type of Lead",
+                      items: ['Hot Lead', 'Warm Lead', 'Cold Lead'],
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedIncomeSource = newValue;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 70.h),
+                    textField("Add Referral Code", "Add Referral Code"),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0.w),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: _isCheckedPrivacy,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              _isCheckedPrivacy = value ?? false;
+                            });
+                          },
+                          fillColor: WidgetStateProperty.resolveWith<Color>(
+                              (Set<WidgetState> states) {
+                            if (states.contains(WidgetState.selected)) {
+                              return Colors.blue;
+                            }
+                            return Colors.white;
+                          }),
+                          checkColor: Colors.white,
+                        ),
+                        Expanded(
+                          child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'I have read the ',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
+                                TextSpan(
+                                  text: 'Privacy Policy, Terms & Condition.',
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: _isCheckedNotify,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              _isCheckedNotify = value ?? false;
+                            });
+                          },
+                          fillColor: WidgetStateProperty.resolveWith<Color>(
+                              (Set<WidgetState> states) {
+                            if (states.contains(WidgetState.selected)) {
+                              return Colors.blue;
+                            }
+                            return Colors.white;
+                          }),
+                          checkColor: Colors.white,
+                        ),
+                        const Expanded(
+                          child: Text(
+                            'I Agree to customer can get Call & Notification on SMS, Email for next Application Process.',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0.w),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _showSubmissionDialog(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            textStyle: const TextStyle(fontSize: 18),
+                            backgroundColor: const Color(0xFF1769E9),
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6.r))),
+                        child: Padding(
+                          padding: EdgeInsets.all(12.0.r),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: 30.h,
+                            child: Center(
+                              child: Text(
+                                "SUBMIT",
+                                style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 30.h),
-                ],
+                    SizedBox(height: 30.h),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

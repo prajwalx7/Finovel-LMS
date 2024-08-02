@@ -31,310 +31,312 @@ class _ReferenceDetailsScreenState extends State<ReferenceDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                    child: Image.asset(
+                      'assets/imgs/header_bg1.png',
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: 150.h,
+                    ),
                   ),
-                  child: Image.asset(
-                    'assets/imgs/header_bg1.png',
-                    fit: BoxFit.fill,
-                    width: double.infinity,
-                    height: 190.h,
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 5.h,
+                      left: 20.w,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {},
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 10.0.w),
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.arrow_back_ios,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'BACK',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 50.h),
+                        const Text(
+                          'Reference Details',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                ],
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.0.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Reference Details",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    const Text(
+                      "Please provide 2 References for your Loan Application",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 60.h,
-                    left: 20.w,
+              ),
+              SizedBox(height: 15.h),
+              //reference 1
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+                child: Container(
+                  padding: EdgeInsets.all(20.r),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.0.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 3,
+                        blurRadius: 3,
+                        offset: const Offset(0, 1),
+                      ),
+                    ],
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
                           GestureDetector(
-                            onTap: () {},
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 10.0.w),
-                              child: const Row(
-                                children: [
-                                  Icon(
-                                    Icons.arrow_back_ios,
-                                    size: 15,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    'BACK',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
+                            onTap: _toggleCheckbox1,
+                            child: Container(
+                              width: 24.0,
+                              height: 24.0,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.blue,
+                                  width: 2.0,
+                                ),
                               ),
+                              child: _isChecked1
+                                  ? Center(
+                                      child: Container(
+                                        width: 12.0,
+                                        height: 12.0,
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    )
+                                  : null,
                             ),
                           ),
+                          SizedBox(width: 10.w),
+                          const Text("Reference 1",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      SizedBox(height: 40.h),
-                      const Text(
-                        'Reference Details',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      SizedBox(height: 10.h),
+                      buildTextField("Enter Referred Name", "Name"),
+                      SizedBox(height: 20.h),
+                      builddropdownField(
+                          value: selectedRelation1,
+                          hintText: "Select Relation",
+                          items: [
+                            "Father",
+                            "Mother",
+                            "Spouse",
+                            "Brother",
+                            "Sister"
+                          ],
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedRelation1 = newValue;
+                            });
+                          },
+                          labelText: "Select Relation"),
+                      SizedBox(height: 20.h),
+                      buildTextField("Mobile Number", "Mobile Number"),
                     ],
                   ),
                 ),
-              ],
-            ),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 10.0.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Reference Details",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  SizedBox(height: 8.h),
-                  const Text(
-                    "Please provide 2 References for your Loan Application",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
               ),
-            ),
-            SizedBox(height: 15.h),
-            //reference 1
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.0.w),
-              child: Container(
-                padding: EdgeInsets.all(20.r),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8.0.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 3,
-                      blurRadius: 3,
-                      offset: const Offset(0, 1),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: _toggleCheckbox1,
-                          child: Container(
-                            width: 24.0,
-                            height: 24.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.blue,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: _isChecked1
-                                ? Center(
-                                    child: Container(
-                                      width: 12.0,
-                                      height: 12.0,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                  )
-                                : null,
-                          ),
-                        ),
-                        SizedBox(width: 10.w),
-                        const Text("Reference 1",
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                      ],
-                    ),
-                    SizedBox(height: 10.h),
-                    buildTextField("Enter Referred Name", "Name"),
-                    SizedBox(height: 20.h),
-                    builddropdownField(
-                        value: selectedRelation1,
-                        hintText: "Select Relation",
-                        items: [
-                          "Father",
-                          "Mother",
-                          "Spouse",
-                          "Brother",
-                          "Sister"
-                        ],
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedRelation1 = newValue;
-                          });
-                        },
-                        labelText: "Select Relation"),
-                    SizedBox(height: 20.h),
-                    buildTextField("Mobile Number", "Mobile Number"),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(height: 30.h),
+              SizedBox(height: 30.h),
 
-            //reference 2
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.0.w),
-              child: Container(
-                padding: EdgeInsets.all(20.r),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8.0.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 3,
-                      blurRadius: 3,
-                      offset: const Offset(0, 1),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: _toggleCheckbox2,
-                          child: Container(
-                            width: 24.0,
-                            height: 24.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.blue,
-                                width: 2.0,
-                              ),
-                            ),
-                            child: _isChecked2
-                                ? Center(
-                                    child: Container(
-                                      width: 12.0,
-                                      height: 12.0,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.blue,
-                                      ),
-                                    ),
-                                  )
-                                : null,
-                          ),
-                        ),
-                        SizedBox(width: 10.w),
-                        const Text(
-                          "Reference 2",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10.h),
-                    buildTextField("Enter Referred Name", "Name"),
-                    SizedBox(height: 20.h),
-                    builddropdownField(
-                        value: selectedRelation1,
-                        hintText: "Select Relation",
-                        items: [
-                          "Father",
-                          "Mother",
-                          "Spouse",
-                          "Brother",
-                          "Sister",
-                          "Friend",
-                          "Relative",
-                          "Colleague"
-                        ],
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedRelation2 = newValue;
-                          });
-                        },
-                        labelText: "Select Relation"),
-                    SizedBox(height: 20.h),
-                    buildTextField("Mobile Number", "Mobile Number"),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(height: 20.h),
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+              //reference 2
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+                child: Container(
+                  padding: EdgeInsets.all(20.r),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8.0.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 3,
+                        blurRadius: 3,
+                        offset: const Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: Column(
                     children: [
-                      Icon(
-                        Icons.security_sharp,
-                        color: Colors.green.shade400,
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: _toggleCheckbox2,
+                            child: Container(
+                              width: 24.0,
+                              height: 24.0,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.blue,
+                                  width: 2.0,
+                                ),
+                              ),
+                              child: _isChecked2
+                                  ? Center(
+                                      child: Container(
+                                        width: 12.0,
+                                        height: 12.0,
+                                        decoration: const BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    )
+                                  : null,
+                            ),
+                          ),
+                          SizedBox(width: 10.w),
+                          const Text(
+                            "Reference 2",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
-                      SizedBox(width: 5.w),
-                      const Text(
-                        "Your data is safe with us.",
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
+                      SizedBox(height: 10.h),
+                      buildTextField("Enter Referred Name", "Name"),
+                      SizedBox(height: 20.h),
+                      builddropdownField(
+                          value: selectedRelation1,
+                          hintText: "Select Relation",
+                          items: [
+                            "Father",
+                            "Mother",
+                            "Spouse",
+                            "Brother",
+                            "Sister",
+                            "Friend",
+                            "Relative",
+                            "Colleague"
+                          ],
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedRelation2 = newValue;
+                            });
+                          },
+                          labelText: "Select Relation"),
+                      SizedBox(height: 20.h),
+                      buildTextField("Mobile Number", "Mobile Number"),
                     ],
                   ),
-                  SizedBox(height: 20.h),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        textStyle: TextStyle(fontSize: 18.sp),
-                        backgroundColor: const Color(0xFF1769E9),
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6.r))),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0.w),
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 40.h,
-                        child: Center(
-                          child: Text(
-                            "SAVE AND CONTINUE",
-                            style: TextStyle(
-                                fontSize: 20.sp, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 20.h),
+
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.security_sharp,
+                          color: Colors.green.shade400,
+                        ),
+                        SizedBox(width: 5.w),
+                        const Text(
+                          "Your data is safe with us.",
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20.h),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          textStyle: TextStyle(fontSize: 18.sp),
+                          backgroundColor: const Color(0xFF1769E9),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6.r))),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0.w),
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: 40.h,
+                          child: Center(
+                            child: Text(
+                              "SAVE AND CONTINUE",
+                              style: TextStyle(
+                                  fontSize: 20.sp, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 30.h),
-          ],
+              SizedBox(height: 30.h),
+            ],
+          ),
         ),
       ),
     );

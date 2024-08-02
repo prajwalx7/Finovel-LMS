@@ -38,336 +38,340 @@ class _MySalesDashboardScreenState extends State<MySalesDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10.r),
-                    bottomRight: Radius.circular(10.r),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10.r),
+                      bottomRight: Radius.circular(10.r),
+                    ),
+                    child: Image.asset(
+                      'assets/imgs/header_bg1.png',
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: 180.h,
+                    ),
                   ),
-                  child: Image.asset(
-                    'assets/imgs/header_bg1.png',
-                    fit: BoxFit.fill,
-                    width: double.infinity,
-                    height: 190.h,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 42.h,
-                    left: 20.w,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () => Navigator.popAndPushNamed(
-                                context, '/dashboardscreen'),
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 10.0.w),
-                              child: const Row(
-                                children: [
-                                  Icon(
-                                    Icons.arrow_back_ios,
-                                    size: 15,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    'BACK',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Padding(
-                              padding: EdgeInsets.all(8.r),
-                              child: Image.asset(
-                                "assets/imgs/notification.png",
-                                height: 40.h,
-                                width: 40.w,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'My Sales Dashboard',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 16.0.w),
-                        child: Row(
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: 5.h,
+                      left: 20.w,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
                           children: [
-                            Text(
-                              "Hey, John Dues",
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500),
+                            GestureDetector(
+                              onTap: () => Navigator.popAndPushNamed(
+                                  context, '/dashboardscreen'),
+                              child: Padding(
+                                padding: EdgeInsets.only(top: 10.0.w),
+                                child: const Row(
+                                  children: [
+                                    Icon(
+                                      Icons.arrow_back_ios,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      'BACK',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
                             const Spacer(),
-                            Container(
-                              height: 35.h,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: IconButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, '/filterscreen');
-                                },
-                                icon: SvgPicture.asset(
-                                    "assets/images/filter.svg"),
-                                // label: const Text(""),
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0.0,
-                                  backgroundColor: Colors.transparent,
-                                  foregroundColor: Colors.white,
+                            GestureDetector(
+                              onTap: () {},
+                              child: Padding(
+                                padding: EdgeInsets.all(8.r),
+                                child: Image.asset(
+                                  "assets/imgs/notification.png",
+                                  height: 40.h,
+                                  width: 40.w,
                                 ),
                               ),
                             ),
                           ],
                         ),
+                        SizedBox(height: 20.h),
+                        Text(
+                          'My Sales Dashboard',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 16.0.w),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Hey, John Dues",
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              const Spacer(),
+                              Container(
+                                height: 35.h,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.white),
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: IconButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, '/filterscreen');
+                                  },
+                                  icon: SvgPicture.asset(
+                                      "assets/images/filter.svg"),
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0.0,
+                                    backgroundColor: Colors.transparent,
+                                    foregroundColor: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10.h),
+              DateTimeRow(
+                onRefresh: _refreshScreen,
+              ),
+              SizedBox(height: 25.h),
+              Column(
+                children: [
+                  Wrap(
+                    spacing: 40.w,
+                    runSpacing: 20.h,
+                    children: [
+                      buildCircle('40', 'My Leads', Colors.blue.shade900, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                      buildCircle('13', 'Login Leads', Colors.teal, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                      buildCircle('4', 'Pending Docs', Colors.brown, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                      buildCircle('6', 'Approved', Colors.purple, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                      buildCircle('9', 'Rejected', Colors.red, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                      buildCircle('5', 'Disbursed', Colors.green, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                      buildCircle('3', 'Expired Leads', Colors.yellow, () {
+                        Navigator.pushNamed(context, '/maindashscreen');
+                      }),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/leadsscreen');
+                          },
+                          icon: const Icon(Icons.add_circle_outline),
+                          label: const Text('Add New Leads'),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(26.r),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12.w, vertical: 10.h),
+                            backgroundColor: const Color(0xFF1769E9),
+                            foregroundColor: Colors.white,
+                          ),
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            DateTimeRow(
-              onRefresh: _refreshScreen,
-            ),
-            SizedBox(height: 25.h),
-            Column(
-              children: [
-                Wrap(
-                  spacing: 40.w,
-                  runSpacing: 20.h,
+                ],
+              ),
+              SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                child: Column(
                   children: [
-                    buildCircle('40', 'My Leads', Colors.blue.shade900, () {
+                    buildAmountCard('Still Date Approved Amount',
+                        '₹ 15,00,000/-', "assets/images/star.svg", () {
                       Navigator.pushNamed(context, '/maindashscreen');
                     }),
-                    buildCircle('13', 'Login Leads', Colors.teal, () {
+                    SizedBox(height: 10.h),
+                    buildAmountCard('Still Date Net Disbursed Amount',
+                        '₹ 8,50,000/-', "assets/images/star.svg", () {
                       Navigator.pushNamed(context, '/maindashscreen');
                     }),
-                    buildCircle('4', 'Pending Docs', Colors.brown, () {
-                      Navigator.pushNamed(context, '/maindashscreen');
-                    }),
-                    buildCircle('6', 'Approved', Colors.purple, () {
-                      Navigator.pushNamed(context, '/maindashscreen');
-                    }),
-                    buildCircle('9', 'Rejected', Colors.red, () {
-                      Navigator.pushNamed(context, '/maindashscreen');
-                    }),
-                    buildCircle('5', 'Disbursed', Colors.green, () {
-                      Navigator.pushNamed(context, '/maindashscreen');
-                    }),
-                    buildCircle('3', 'Expired Leads', Colors.yellow, () {
-                      Navigator.pushNamed(context, '/maindashscreen');
-                    }),
+                    SizedBox(height: 10.h),
+                    buildAmountCard(
+                      'Monthly Scorecard May 2024',
+                      '91%',
+                      "assets/images/medal.svg",
+                      () {},
+                    ),
+                    SizedBox(height: 10.h),
+                    buildAmountCard(
+                      'My Earnings',
+                      '600',
+                      "assets/images/star.svg",
+                      () {
+                        Navigator.pushNamed(
+                            context, '/mysalesearningdashboard');
+                      },
+                    ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+              ),
+              SizedBox(height: 20.h),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                height: 70.h,
+                width: double.infinity,
+                color: const Color(0xffE9F1FD),
+                child: Row(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12.0.w),
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/leadsscreen');
-                        },
-                        icon: const Icon(Icons.add_circle_outline),
-                        label: const Text('Add New Leads'),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0.0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(26.r),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 12.w, vertical: 10.h),
-                          backgroundColor: const Color(0xFF1769E9),
-                          foregroundColor: Colors.white,
+                    Text(
+                      "Performance Chart",
+                      style: TextStyle(
+                          fontSize: 18.sp, fontWeight: FontWeight.w500),
+                    ),
+                    const Spacer(),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0.0,
+                        backgroundColor: const Color(0xFF1769E9),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(26.r),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 25.w, vertical: 15.h),
+                        child: const Text("MORE"),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 10.0.h),
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/faqscreen');
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(vertical: 10.h),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset("assets/images/faq.svg",
+                                height: 30.h, width: 30.w),
+                            SizedBox(width: 10.w),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Faq',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                    ),
+                                  ),
+                                  Text(
+                                    'All your queries answer',
+                                    style: TextStyle(
+                                        fontSize: 15.sp, color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.grey.shade700,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
+                    const Divider(color: Colors.grey),
+                    SizedBox(height: 10.h),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/supportscreen');
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(vertical: 10.h),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset("assets/images/live.svg",
+                                height: 30.h, width: 30.w),
+                            SizedBox(width: 10.w),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Support',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Reach out for any help',
+                                    style: TextStyle(
+                                        fontSize: 15.sp, color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.grey.shade700,
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
-            SizedBox(height: 20.h),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.w),
-              child: Column(
-                children: [
-                  buildAmountCard('Still Date Approved Amount', '₹ 15,00,000/-',
-                      "assets/images/star.svg", () {
-                    Navigator.pushNamed(context, '/maindashscreen');
-                  }),
-                  SizedBox(height: 10.h),
-                  buildAmountCard('Still Date Net Disbursed Amount',
-                      '₹ 8,50,000/-', "assets/images/star.svg", () {
-                    Navigator.pushNamed(context, '/maindashscreen');
-                  }),
-                  SizedBox(height: 10.h),
-                  buildAmountCard(
-                    'Monthly Scorecard May 2024',
-                    '91%',
-                    "assets/images/medal.svg",
-                    () {},
-                  ),
-                  SizedBox(height: 10.h),
-                  buildAmountCard(
-                    'My Earnings',
-                    '600',
-                    "assets/images/star.svg",
-                    () {
-                      Navigator.pushNamed(context, '/mysalesearningdashboard');
-                    },
-                  ),
-                ],
               ),
-            ),
-            SizedBox(height: 20.h),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              height: 70.h,
-              width: double.infinity,
-              color: const Color(0xffE9F1FD),
-              child: Row(
-                children: [
-                  Text(
-                    "Performance Chart",
-                    style:
-                        TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
-                  ),
-                  const Spacer(),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0.0,
-                      backgroundColor: const Color(0xFF1769E9),
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(26.r),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 25.w, vertical: 15.h),
-                      child: const Text("MORE"),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(height: 20.h),
-            Padding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 10.0.h),
-              child: Column(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/faqscreen');
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 10.h),
-                      child: Row(
-                        children: [
-                          SvgPicture.asset("assets/images/faq.svg",
-                              height: 30.h, width: 30.w),
-                          SizedBox(width: 10.w),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Faq',
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                  ),
-                                ),
-                                Text(
-                                  'All your queries answer',
-                                  style: TextStyle(
-                                      fontSize: 15.sp, color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey.shade700,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10.h),
-                  const Divider(color: Colors.grey),
-                  SizedBox(height: 10.h),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/supportscreen');
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 10.h),
-                      child: Row(
-                        children: [
-                          SvgPicture.asset("assets/images/live.svg",
-                              height: 30.h, width: 30.w),
-                          SizedBox(width: 10.w),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Support',
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                  ),
-                                ),
-                                Text(
-                                  'Reach out for any help',
-                                  style: TextStyle(
-                                      fontSize: 15.sp, color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.grey.shade700,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 30.h),
-          ],
+              SizedBox(height: 30.h),
+            ],
+          ),
         ),
       ),
     );

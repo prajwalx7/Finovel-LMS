@@ -5,11 +5,11 @@ class ApplicationTrackingScreen extends StatefulWidget {
   const ApplicationTrackingScreen({super.key});
 
   @override
-  _ApplicationTrackingScreenState createState() =>
-      _ApplicationTrackingScreenState();
+  ApplicationTrackingScreenState createState() =>
+      ApplicationTrackingScreenState();
 }
 
-class _ApplicationTrackingScreenState extends State<ApplicationTrackingScreen> {
+class ApplicationTrackingScreenState extends State<ApplicationTrackingScreen> {
   int _currentStep = 0;
   final bool _isApproved = true; // Set this as per needs
 
@@ -102,7 +102,7 @@ class _ApplicationTrackingScreenState extends State<ApplicationTrackingScreen> {
     final Color backgroundColor = index == _currentStep
         ? Colors.green
         : (index < _currentStep ? Colors.green : Colors.grey);
-    final Color iconColor = Colors.white;
+    const Color iconColor = Colors.white;
 
     final double size = 30.r;
 
@@ -164,107 +164,110 @@ class _ApplicationTrackingScreenState extends State<ApplicationTrackingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10.r),
-                  bottomRight: Radius.circular(10.r),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10.r),
+                    bottomRight: Radius.circular(10.r),
+                  ),
+                  child: Image.asset(
+                    'assets/imgs/header_bg1.png',
+                    fit: BoxFit.fill,
+                    width: double.infinity,
+                    height: 150.h,
+                  ),
                 ),
-                child: Image.asset(
-                  'assets/imgs/header_bg1.png',
-                  fit: BoxFit.fill,
-                  width: double.infinity,
-                  height: 190.h,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 42.h,
-                  left: 20.w,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () => Navigator.popAndPushNamed(
-                              context, '/maindashscreen'),
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 10.0.w),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.arrow_back_ios,
-                                  size: 15.r,
-                                  color: Colors.white,
-                                ),
-                                const Text(
-                                  'BACK',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 5.h,
+                    left: 20.w,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () => Navigator.popAndPushNamed(
+                                context, '/maindashscreen'),
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 10.0.w),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.arrow_back_ios,
+                                    size: 15.r,
+                                    color: Colors.white,
+                                  ),
+                                  const Text(
+                                    'BACK',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        const Spacer(),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Image.asset(
-                              "assets/imgs/notification.png",
-                              height: 40.h,
-                              width: 40.w,
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Image.asset(
+                                "assets/imgs/notification.png",
+                                height: 40.h,
+                                width: 40.w,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 40.h),
-                    Text(
-                      'Loan Application Tracker',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
+                        ],
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 40.h),
+                      Text(
+                        'Loan Application Tracker',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: Transform.translate(
-              offset: Offset(0, -30.h),
-              child: Stepper(
-                connectorColor: MaterialStatePropertyAll(Colors.green.shade500),
-                currentStep: _currentStep,
-                onStepTapped: (step) {
-                  if (step <= 2 || (_isApproved && step <= 4)) {
-                    setState(() => _currentStep = step);
-                  }
-                },
-                onStepContinue: null,
-                onStepCancel: null,
-                steps: _getSteps(),
-                stepIconBuilder: _customStepIconBuilder,
-                controlsBuilder:
-                    (BuildContext context, ControlsDetails details) {
-                  return Container(); 
-                },
+              ],
+            ),
+            SizedBox(height: 20.h),
+            Expanded(
+              child: Transform.translate(
+                offset: Offset(0, -30.h),
+                child: Stepper(
+                  connectorColor: WidgetStatePropertyAll(Colors.green.shade500),
+                  currentStep: _currentStep,
+                  onStepTapped: (step) {
+                    if (step <= 2 || (_isApproved && step <= 4)) {
+                      setState(() => _currentStep = step);
+                    }
+                  },
+                  onStepContinue: null,
+                  onStepCancel: null,
+                  steps: _getSteps(),
+                  stepIconBuilder: _customStepIconBuilder,
+                  controlsBuilder:
+                      (BuildContext context, ControlsDetails details) {
+                    return Container();
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

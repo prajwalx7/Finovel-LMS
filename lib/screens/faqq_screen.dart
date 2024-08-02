@@ -23,122 +23,124 @@ class FAQScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10.r),
-                  bottomRight: Radius.circular(10.r),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10.r),
+                    bottomRight: Radius.circular(10.r),
+                  ),
+                  child: Image.asset(
+                    'assets/imgs/header_bg1.png',
+                    fit: BoxFit.fill,
+                    width: double.infinity,
+                    height: 150.h,
+                  ),
                 ),
-                child: Image.asset(
-                  'assets/imgs/header_bg1.png',
-                  fit: BoxFit.fill,
-                  width: double.infinity,
-                  height: 190.h,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 42.h,
-                  left: 20.w,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () => Navigator.popAndPushNamed(
-                              context, '/allpartners'),
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 10.0.w),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.arrow_back_ios,
-                                  size: 15.sp,
-                                  color: Colors.white,
-                                ),
-                                const Text(
-                                  'BACK',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const Spacer(),
-                        GestureDetector(
-                          onTap: () {},
-                          child: Padding(
-                            padding: EdgeInsets.all(8.r),
-                            child: Image.asset(
-                              "assets/imgs/notification.png",
-                              height: 40.h,
-                              width: 40.w,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 40.h),
-                    Text(
-                      'Frequently Asked Questions',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              itemCount: faqItems.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    child: Theme(
-                      data: Theme.of(context).copyWith(
-                        dividerColor: Colors.transparent,
-                      ),
-                      child: ExpansionTile(
-                        iconColor: Colors.black54,
-                        tilePadding: EdgeInsets.symmetric(
-                            horizontal: 16.w, vertical: 0.h),
-                        textColor: Colors.black,
-                        title: Text(
-                          faqItems[index]['question']!,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 5.h,
+                    left: 20.w,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(16.0.r),
-                            child: Text(faqItems[index]['answer']!),
+                          GestureDetector(
+                            onTap: () => Navigator.popAndPushNamed(
+                                context, '/allpartners'),
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 10.0.w),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.arrow_back_ios,
+                                    size: 15.sp,
+                                    color: Colors.white,
+                                  ),
+                                  const Text(
+                                    'BACK',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Padding(
+                              padding: EdgeInsets.all(8.r),
+                              child: Image.asset(
+                                "assets/imgs/notification.png",
+                                height: 40.h,
+                                width: 40.w,
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                    ),
+                      SizedBox(height: 40.h),
+                      Text(
+                        'Frequently Asked Questions',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                );
-              },
+                ),
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: faqItems.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      child: Theme(
+                        data: Theme.of(context).copyWith(
+                          dividerColor: Colors.transparent,
+                        ),
+                        child: ExpansionTile(
+                          iconColor: Colors.black54,
+                          tilePadding: EdgeInsets.symmetric(
+                              horizontal: 16.w, vertical: 0.h),
+                          textColor: Colors.black,
+                          title: Text(
+                            faqItems[index]['question']!,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(16.0.r),
+                              child: Text(faqItems[index]['answer']!),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -8,128 +8,131 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(10),
-                      bottomRight: Radius.circular(10),
-                    ),
-                    child: Image.asset(
-                      'assets/imgs/header_bg1.png',
-                      fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: 190.h,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: 42.h,
-                      left: 20.w,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () => Navigator.popAndPushNamed(
-                                  context, '/referralscreen'),
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 10.0.w),
-                                child: const Row(
-                                  children: [
-                                    Icon(
-                                      Icons.arrow_back_ios,
-                                      size: 15,
-                                      color: Colors.white,
-                                    ),
-                                    Text(
-                                      'BACK',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const Spacer(),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Padding(
-                                padding: EdgeInsets.all(8.r),
-                                child: Image.asset(
-                                  "assets/imgs/notification.png",
-                                  height: 40.h,
-                                  width: 40.w,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 30.h),
-                        const Text(
-                          'Dashboard',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.h),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 19.0),
-                child: Column(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                Stack(
                   children: [
-                    salesDashboardContainer(context, "My Sales Dashboard", () {
-                      Navigator.pushNamed(context, '/mysalesdashboard');
-                    }),
-                    SizedBox(height: 30.h),
-                    salesDashboardContainer(
-                        context, "Channel Partners Dashboard", () {
-                      Navigator.pushNamed(context, '/channelscreen');
-                    }),
-                    SizedBox(height: 30.h),
-                    salesDashboardContainer(context, "My All Revenue", () {
-                      Navigator.pushNamed(context, '/revenuescreen');
-                    }),
+                    ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      ),
+                      child: Image.asset(
+                        'assets/imgs/header_bg1.png',
+                        fit: BoxFit.fill,
+                        width: double.infinity,
+                        height: 150.h,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: 5.h,
+                        left: 20.w,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () => Navigator.popAndPushNamed(
+                                    context, '/referralscreen'),
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 10.0.w),
+                                  child: const Row(
+                                    children: [
+                                      Icon(
+                                        Icons.arrow_back_ios,
+                                        size: 15,
+                                        color: Colors.white,
+                                      ),
+                                      Text(
+                                        'BACK',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const Spacer(),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.r),
+                                  child: Image.asset(
+                                    "assets/imgs/notification.png",
+                                    height: 40.h,
+                                    width: 40.w,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 30.h),
+                          const Text(
+                            'Dashboard',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
-              ),
-              Lottie.asset(
-                "assets/animation/sharee.json",
-                height: 300.h,
-                width: double.infinity,
-              ),
-            ],
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: ClipRect(
-              child: Align(
-                alignment: Alignment.topCenter,
-                heightFactor: 0.75,
-                child: Lottie.asset(
-                  "assets/animation/icon.json",
-                  height: 150.h,
+                SizedBox(height: 20.h),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 19.0),
+                  child: Column(
+                    children: [
+                      salesDashboardContainer(context, "My Sales Dashboard",
+                          () {
+                        Navigator.pushNamed(context, '/mysalesdashboard');
+                      }),
+                      SizedBox(height: 30.h),
+                      salesDashboardContainer(
+                          context, "Channel Partners Dashboard", () {
+                        Navigator.pushNamed(context, '/channelscreen');
+                      }),
+                      SizedBox(height: 30.h),
+                      salesDashboardContainer(context, "My All Revenue", () {
+                        Navigator.pushNamed(context, '/revenuescreen');
+                      }),
+                    ],
+                  ),
+                ),
+                Lottie.asset(
+                  "assets/animation/sharee.json",
+                  height: 300.h,
                   width: double.infinity,
                 ),
-              ),
+              ],
             ),
-          )
-        ],
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: ClipRect(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  heightFactor: 0.75,
+                  child: Lottie.asset(
+                    "assets/animation/icon.json",
+                    height: 150.h,
+                    width: double.infinity,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
