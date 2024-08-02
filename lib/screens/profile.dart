@@ -29,10 +29,21 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 3,
+                      blurRadius: 3,
+                      offset: const Offset(0, 1),
+                    ),
+                  ],
+                ),
                 padding: EdgeInsets.all(12.r),
                 height: 80.h,
                 width: double.infinity,
-                color: Colors.white,
                 child: Row(
                   children: [
                     const CircleAvatar(
@@ -85,26 +96,37 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 15.h),
+              SizedBox(height: 20.h),
               Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 3,
+                      blurRadius: 3,
+                      offset: const Offset(0, 1),
+                    ),
+                  ],
+                ),
                 padding: EdgeInsets.all(10.0.r),
-                color: Colors.white,
                 child: Column(
                   children: [
                     buildContainer(
                         Icons.person, "Username", _usernameController),
-                    const Divider(color: Colors.grey),
+                    Divider(color: Colors.grey.shade300),
                     buildContainer(Icons.phone, "Phone No.", _phoneController),
-                    const Divider(color: Colors.grey),
+                    Divider(color: Colors.grey.shade300),
                     buildContainer(Icons.email, "Email", _emailController),
-                    const Divider(color: Colors.grey),
+                    Divider(color: Colors.grey.shade300),
                     buildContainer(
                         Icons.location_city, "City", _cityController),
-                    const Divider(color: Colors.grey),
+                    Divider(color: Colors.grey.shade300),
                     buildContainer(Icons.map, "State", _stateController),
-                    const Divider(color: Colors.grey),
+                    Divider(color: Colors.grey.shade300),
                     buildContainer(Icons.flag, "Country", _countryController),
-                    const Divider(color: Colors.grey),
+                    Divider(color: Colors.grey.shade300),
                     buildContainer(
                         Icons.location_pin, "Pin Code", _pinCodeController),
                   ],

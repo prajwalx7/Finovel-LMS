@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       builder: (context, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: '/profile',
+          initialRoute: '/loginscreen',
           routes: {
             '/referralscreen': (context) => const ReferralProgramScreen(),
             '/referralsteps': (context) => const ReferralSteps(),
@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                 const EarningfromChannelPartner(),
             '/loginscreen': (context) => const LoginScreen(),
             '/smsscreen': (context) => const SmsScreen(),
-            '/profile': (context) =>  ProfileScreen(),
+            '/profile': (context) => ProfileScreen(),
           },
         );
       },
