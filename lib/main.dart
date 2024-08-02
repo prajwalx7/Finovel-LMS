@@ -43,6 +43,10 @@ class MyApp extends StatelessWidget {
       designSize: const Size(428, 926),
       builder: (context, _) {
         return MaterialApp(
+          theme: ThemeData(
+            textSelectionTheme: const TextSelectionThemeData(
+                selectionHandleColor: Colors.grey, selectionColor: Colors.grey),
+          ),
           debugShowCheckedModeBanner: false,
           initialRoute: '/loginscreen',
           routes: {

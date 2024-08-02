@@ -17,9 +17,17 @@ class ProfileScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Text(
             "Profile",
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+          leading: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.popAndPushNamed(context, '/smsscreen'),
           ),
           centerTitle: true,
           backgroundColor: const Color(0xFF1769E9),
@@ -84,7 +92,9 @@ class ProfileScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(6.r),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/referralscreen');
+                      },
                       label: Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 1.0.w,

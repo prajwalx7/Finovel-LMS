@@ -18,14 +18,16 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 80.h),
-                CircleAvatar(
-                    radius: 60.r,
-                    backgroundColor: Colors.blue[50],
-                    child: Image.asset("assets/images/logo.png")),
+                Image.asset(
+                  "assets/images/logo.png",
+                  height: 140.h,
+                  width: 140.w,
+                ),
                 SizedBox(height: 25.h),
                 Text(
                   'Welcome back',
-                  style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold),
+                  style:
+                      TextStyle(fontSize: 26.sp, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10.h),
                 Text(
@@ -34,8 +36,10 @@ class LoginScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 50.h),
                 IntlPhoneField(
+                  cursorColor: const Color(0xFF1769E9),
                   decoration: InputDecoration(
-                    labelText: 'Enter your phone number',
+                    labelText: 'Enter your mobile number',
+                    labelStyle: const TextStyle(color: Colors.black54),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.r),
                     ),

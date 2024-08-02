@@ -25,7 +25,7 @@ class ReferralProgramScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/smsscreen');
+                        Navigator.pushNamed(context, '/profile');
                       },
                       child: Padding(
                         padding: EdgeInsets.only(top: 10.0.w),

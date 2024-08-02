@@ -40,9 +40,10 @@ class SmsScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 Text(
-                  "We've sent you an OTP to your phone number\n+917276050424 for verification",
+                  "We've sent you an OTP to your mobile number\n+9172******24 for verification",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+                  style:
+                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 40.h),
                 Row(
@@ -74,7 +75,7 @@ class SmsScreen extends StatelessWidget {
                 SizedBox(height: 40.h),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/referralscreen');
+                    Navigator.pushNamed(context, '/profile');
                   },
                   style: ElevatedButton.styleFrom(
                       textStyle: TextStyle(fontSize: 18.sp),
